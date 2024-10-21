@@ -69,12 +69,11 @@ def main():
                 collision = asteroid.check_collision(shot)
 
                 if collision:
-                    asteroid.kill()
+                    asteroid.split()
                     shot.kill()
         
         # Sets the frame rate to 60 and tracks the elapsed time for each frame
-        dt = clock.tick(60) / 1000
-        
+        dt = clock.tick(60) / 1000        
 
 if __name__ == "__main__":
     main()
