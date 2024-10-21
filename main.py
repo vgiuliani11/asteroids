@@ -1,4 +1,6 @@
+import sys
 import pygame
+
 from constants import *
 from circleshape import *
 from player import *
@@ -47,6 +49,14 @@ def main():
         
         # Updates the display surface to the screen
         pygame.display.flip()
+        
+        # Checks if the player has collided with an asteroid
+        for asteroid in asteroids:
+            collision = asteroid.check_collision(player)
+
+            if collision:
+                print ("Game over!")
+                sys.exit()
 
         # Sets the frame rate to 60 and tracks the elapsed time for each frame
         dt = clock.tick(60) / 1000
