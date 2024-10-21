@@ -63,6 +63,15 @@ def main():
                 print ("Game over!")
                 sys.exit()
 
+        # Checks if a bullet has collided with an asteroid
+        for asteroid in asteroids:
+            for shot in shots:
+                collision = asteroid.check_collision(shot)
+
+                if collision:
+                    asteroid.kill()
+                    shot.kill()
+        
         # Sets the frame rate to 60 and tracks the elapsed time for each frame
         dt = clock.tick(60) / 1000
         
